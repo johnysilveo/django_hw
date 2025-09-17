@@ -1,0 +1,22 @@
+{% extends "helloweb/base.html" %}
+{% block title %}History • Hyperion{% endblock %}
+{% block content %}
+  <div id="keats-history" class="p-4 mb-4 rounded" role="region" aria-labelledby="keats-history-title">
+    <h2 id="keats-history-title" class="mb-2">Keats — City of First Landings</h2>
+    <p class="mb-2">
+      Founded during the early Hegemony expansion, Keats grew around Hyperion’s primary spaceport on the Equus
+      continent. Named in honor of poet <em>John Keats</em>, the city blended frontier grit with high culture:
+      landing pads beside amphitheaters; cargo mechs idling outside coffeehouses where pilgrims swapped Time Tombs rumors.
+    </p>
+    <p class="m-0">
+      As the largest settlement on Hyperion, Keats hosted the Hegemony Consulate and the Governor-General’s offices,
+      serving as a launch point for expeditions into the <strong>Sea of Grass</strong> and toward the enigmatic
+      <strong>Time Tombs</strong>.
+    </p>
+  </div>
+  <div class="container py-4">
+    <a class="btn btn-brand btn-sm" href="{% url 'history_people' %}">People</a>
+    <a class="btn btn-ghost btn-sm" href="{% url 'history_photos' %}">Photos</a>
+  </div>
+</div>
+{% endblock %}

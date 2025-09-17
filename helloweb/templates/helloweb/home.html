@@ -1,0 +1,54 @@
+{% extends "helloweb/base.html" %}
+{% load static %}
+{% block title %}Home • Keats City Hub{% endblock %}
+{% block content %}
+<header class="hero">
+  <div class="container hero__inner">
+    <div class="hero__badge">Hegemony • WorldWeb Relay</div>
+    <h1 class="hero__title">Keats City Hub <span class="hero__spark">∞</span></h1>
+    <p class="hero__lead">Briefings from the Time Tombs, pilgrim notices, and civic services.</p>
+    <div class="hero__cta">
+      <a href="{% url 'news' %}" class="btn btn-brand">City News</a>
+      <a href="{% url 'history_index' %}" class="btn btn-ghost">History</a>
+    </div>
+  </div>
+  <img class="hero__bg" src="{% static 'helloweb/hero22.jpeg' %}" alt="">
+</header>
+
+<section class="strip">
+  <div class="container strip__grid">
+    <div class="strip__item"><span class="dot"></span> Chrono-weather window opens in 6h 12m</div>
+    <div class="strip__item"><span class="dot"></span> Research permits: limited lots this cycle</div>
+    <div class="strip__item"><span class="dot"></span> Pilgrim advisory: avoid eastern dunes</div>
+  </div>
+</section>
+
+<section class="tiles container">
+  <article class="tile">
+    <img src="{% static 'helloweb/hero11.jpg' %}" alt="">
+    <div class="tile__body">
+      <h3>Management</h3>
+      <p>Mayor’s office, councils, departments.</p>
+      <a href="{% url 'management' %}" class="tile__link">Open</a>
+    </div>
+  </article>
+
+  <article class="tile">
+    <img src="{% static 'helloweb/thombs2.jpeg' %}" alt="">
+    <div class="tile__body">
+      <h3>Facts</h3>
+      <p>Population, districts, landmarks.</p>
+      <a href="{% url 'facts' %}" class="tile__link">Open</a>
+    </div>
+  </article>
+
+  <article class="tile">
+    <img src="{% static 'helloweb/IMG_3870.PNG' %}" alt="">
+    <div class="tile__body">
+      <h3>Contacts</h3>
+      <p>Emergency, utilities, permits.</p>
+      <a href="{% url 'contacts' %}" class="tile__link">Open</a>
+    </div>
+  </article>
+</section>
+{% endblock %}

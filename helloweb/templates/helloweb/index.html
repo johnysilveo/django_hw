@@ -1,0 +1,21 @@
+{% extends "helloweb/base.html" %}
+{% block title %}Testing Tamplates{% endblock %}
+{% block content %}
+    <h1>Home</h1>
+    <p>Testing </p>
+    <h2>func {{now|upper}}</h2>
+    <h2>{{title|truncatewords:1}}</h2>
+    <h2>func {{dummy|upper}}</h2>
+    <h3>List: {{myList}}</h3>
+    <ul>
+        {%for item in myList%}
+        <li>{{item}}</li>
+        {%endfor%}
+    </ul>
+
+    {% if user.is_authenticated %}
+        <p>Hello, {{user.username}}</p>
+    {%else%}
+        <p><i>hello guest</i></p>
+    {%endif%}
+{% endblock %}

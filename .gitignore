@@ -1,0 +1,9 @@
+# Ignore specific folders
+.idea/
+__pycache__/
+.xml
+.venv/
+.7z
+.idea/dbnavigator.xml
+# Track everything else
+!*

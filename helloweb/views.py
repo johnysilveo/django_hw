@@ -9,14 +9,10 @@ from django.views import View
 
 
 def index(request):
-    return HttpResponse("""
-    <h1> <i>Hello from Django</i> </h1>
-    <r>
-    <p>Some text</p>
-    <a href="datetime/">datetime</a>
-    <a href="random_sayings/">random_sayings</a>
-    """)
-
+    now = datetime.datetime.now()
+    context = {'title': 'Python DTL', 'now': now}
+    # 'myList' = [one,two,tree]
+    return render(request, 'helloweb/index.html', context)
 
 def current_datetime(request):
     now = datetime.datetime.now()
@@ -45,6 +41,10 @@ def random_sayings(request):
 
     chosen = random.choice(sayings)
     return HttpResponse(chosen)
+def song_string(request):
+    lyrics = 'whaaaaaat'
+
+    return render(request, 'helloweb/song_string.html', {'song':lyrics})
 
 
 

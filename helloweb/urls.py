@@ -7,6 +7,8 @@ urlpatterns = [
     path("management/", views.management, name="management"),
     path("facts/", views.facts, name="facts"),
     path("contacts/", views.contacts, name="contacts"),
+    path("index/", views.index, name="index"),
+    path("song_string/",views.song_string, name="song_string"),
 
     # history pages directly here
     path("history/", views.history_index, name="history_index"),

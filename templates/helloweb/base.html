@@ -48,10 +48,21 @@
       </div>
     </nav>
 
-    <!-- Page Content -->
-    <main class="flex-grow-1">
+<!-- Page Content -->
+<main class="site-main">
+  {# Full-width hero (only pages that need it will fill this) #}
+  {% block hero %}{% endblock %}
+
+  {# Normal, centered content for every page #}
+  <div class="page-shell container">
+    {% block page_header %}{% endblock %}
+    <div class="content-flow">
       {% block content %}{% endblock %}
-    </main>
+    </div>
+  </div>
+</main>
+
+
 
     <!-- Footer -->
   <footer class="site-footer pro-footer mt-auto">
@@ -103,7 +114,7 @@
           </ul>
         </div>
         <div class="pro-footer__col">
-          <h6>Pilgrimage</h6>
+          <h6>Sports</h6>
           <ul>
             <li><a href="{% url 'sports:football' %}">Football</a></li>
             <li><a href="{% url 'sports:hokey' %}">Hockey</a></li>

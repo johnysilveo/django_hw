@@ -1,7 +1,8 @@
 {% extends "helloweb/base.html" %}
 {% load static %}
 {% block title %}Home • Keats City Hub{% endblock %}
-{% block content %}
+
+{% block hero %}
 <header class="hero">
   <div class="container hero__inner">
     <div class="hero__badge">Hegemony • WorldWeb Relay</div>
@@ -14,7 +15,6 @@
   </div>
   <img class="hero__bg" src="{% static 'helloweb/hero22.jpeg' %}" alt="">
 </header>
-
 <section class="strip">
   <div class="container strip__grid">
     <div class="strip__item"><span class="dot"></span> Chrono-weather window opens in 6h 12m</div>
@@ -22,6 +22,10 @@
     <div class="strip__item"><span class="dot"></span> Pilgrim advisory: avoid eastern dunes</div>
   </div>
 </section>
+{% endblock %}
+
+{% block content %}
+
 
 <section class="tiles container">
   <article class="tile">

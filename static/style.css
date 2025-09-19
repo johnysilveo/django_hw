@@ -256,3 +256,74 @@ hr, .rule{
 /* ---------- Utilities */
 .mt-5{ margin-top:3rem !important; }
 .py-5{ padding-top:3rem !important; padding-bottom:3rem !important; }
+
+
+
+/* ===========================
+   Page content shell & glow
+   =========================== */
+
+/* Main area: generous but not bulky */
+.site-main{
+  position:relative; isolation:isolate;
+  padding: clamp(28px, 5vw, 52px) 0 clamp(44px, 6vw, 72px);
+}
+
+/* Gentle background glows (same palette as header/footer) */
+.site-main::before,
+.site-main::after{
+  content:""; position:absolute; inset:0; z-index:-1; pointer-events:none;
+  background: radial-gradient(900px 480px at 15% 12%, rgba(61,73,255,.14), transparent 60%),
+              radial-gradient(780px 420px at 85% 10%, rgba(255,90,230,.12), transparent 65%),
+              radial-gradient(1200px 520px at 50% 110%, rgba(156,107,255,.10), transparent 70%);
+  filter:saturate(115%);
+  mask-image: linear-gradient(180deg, rgba(0,0,0,.85), rgba(0,0,0,1));
+}
+.site-main::after{
+  /* faint band behind mid-page sections */
+  background:
+    radial-gradient(700px 380px at 50% 40%, rgba(255,255,255,.04), transparent 60%);
+  opacity:.65;
+}
+
+/* Page shell limits width & creates rhythm */
+.page-shell{ max-width:1100px; }
+
+/* Vertical flow rhythm for any children inside .content-flow */
+.content-flow > * + *{ margin-top: clamp(16px, 2.4vw, 24px); }
+
+/* Optional compact page header block (if you use block page_header) */
+.page-header{
+  margin-bottom: clamp(14px, 2vw, 18px);
+}
+.page-header h1{
+  font-weight:900; letter-spacing:.2px;
+  font-size: clamp(1.8rem, 4.2vw, 3rem);
+}
+
+/* Sections & “Apple-like” quiet panels */
+.section{ padding: clamp(14px, 2.2vw, 20px); }
+.section--wide{ padding: clamp(24px, 3vw, 32px); }
+
+/* Subtle glass panel (use instead of .card when you want quieter chrome) */
+.k-panel{
+  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.025));
+  border:1px solid var(--border);
+  border-radius:16px;
+  box-shadow: var(--shadow), 0 1px 0 rgba(255,255,255,.03) inset;
+  padding: clamp(16px, 2.4vw, 24px);
+}
+
+/* Neat content grid helper (drop images/lists/cards in here) */
+.content-grid{
+  display:grid; gap: clamp(14px, 2vw, 20px);
+}
+@media (min-width: 992px){
+  .content-grid--2{ grid-template-columns: 1fr 1fr; }
+  .content-grid--3{ grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Utilities to keep pages tidy */
+.lead-muted{ color:var(--muted); max-width:60ch; }
+.spacious   { margin-top: clamp(18px, 2.6vw, 28px); }
+.tight      { margin-top: .5rem; }

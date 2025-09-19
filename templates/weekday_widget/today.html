@@ -1,0 +1,59 @@
+{% extends "helloweb/base.html" %}
+{% load static %}
+{% block title %}Hockey • Hyperion{% endblock %}
+{% block content %}
+
+<!-- Hero -->
+
+<!-- ===== Weekday Glass Tile (inserted) ===== -->
+<section class="container py-4">
+  <style>
+    .ww-glass{
+      width:100%; max-width:720px; margin-inline:auto;
+      border-radius:20px; overflow:hidden;
+      border:1px solid rgba(255,255,255,.14);
+      background:linear-gradient(182deg, rgba(255,255,255,.10), rgba(255,255,255,.04));
+      box-shadow:0 18px 44px rgba(0,0,0,.48);
+      backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+      color:#e8e9ec;
+    }
+    .ww-hero{ height:clamp(220px, 38vw, 420px); background-size:cover; background-position:center; }
+    .ww-body{ padding:18px 20px 22px; text-align:center; display:flex; flex-direction:column; gap:8px; }
+    .ww-chip{
+      display:inline-block; align-self:center; padding:6px 12px; border-radius:999px;
+      font-weight:700; font-size:.95rem;
+      background:linear-gradient(180deg,rgba(255,255,255,.14),rgba(255,255,255,.06));
+      border:1px solid rgba(255,255,255,.22); box-shadow:inset 0 1px 0 rgba(255,255,255,.18);
+    }
+    .ww-title{ margin:0; font-size:clamp(20px, 2.6vw, 28px); }
+    .ww-sub{ margin:0; color:#a9aebb; }
+  </style>
+
+  <div class="ww-glass" aria-label="{{ day_name }}">
+    <div class="ww-hero" style="{{ bg_css }}"></div>
+    <div class="ww-body">
+      <span class="ww-chip">{{ day_name }}</span>
+      <h2 class="ww-title">Сьогодні — {{ day_name }}</h2>
+      <p class="ww-sub">Гарного дня!</p>
+    </div>
+  </div>
+</section>
+<!-- ===== /Weekday Glass Tile ===== -->
+
+<script>
+(function () {
+  'use strict';
+  const forms = document.querySelectorAll('.needs-validation');
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+      form.classList.add('was-validated');
+    }, false);
+  });
+})();
+</script>
+
+{% endblock %}

@@ -105,9 +105,9 @@
         <div class="pro-footer__col">
           <h6>Pilgrimage</h6>
           <ul>
-            <li><a href="{% url 'index' %}">Testing index</a></li>
-            <li><a href="{% url 'song_string' %}">Random Lyrics</a></li>
-            <li><a href="#">Field Guides</a></li>
+            <li><a href="{% url 'sports:football' %}">Football</a></li>
+            <li><a href="{% url 'sports:hokey' %}">Hockey</a></li>
+            <li><a href="{% url 'sports:basketball' %}">Basketball</a></li>
           </ul>
         </div>
         <div class="pro-footer__col">
@@ -116,7 +116,7 @@
             <label for="f-email" class="visually-hidden">Comms address</label>
             <input id="f-email" name="email" type="email" placeholder="your@relay.worldweb" required>
             <button class="btn btn-brand btn-sm" type="submit">Subscribe</button>
-            <p class="pro-footer__note">Fan portal. Not affiliated with rights holders.</p>
+            <p class="pro-footer__note"><i>Fan portal. Not affiliated with rights holders.</i></p>
           </form>
         </div>
       </div>

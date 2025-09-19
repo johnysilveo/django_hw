@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('helloweb.urls')),
     # path('blog',include('blog.urls')),
+    path('sports/', include(('sports.urls', 'sports'), namespace='sports')),
 ]

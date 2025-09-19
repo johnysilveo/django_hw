@@ -1,0 +1,216 @@
+{% extends "helloweb/base.html" %}
+{% load static %}
+{% block title %}Football • Hyperion{% endblock %}
+{% block content %}
+
+<!-- Hero -->
+<section class="container py-4">
+  <div class="card border-0 shadow-sm">
+    <img src="{% static 'sports/football_hero.jpg' %}" class="card-img-top" alt="Football hero">
+    <div class="card-body">
+      <h1 class="h3 mb-1">Hyperion City Football</h1>
+      <p class="text-muted mb-0">Simple. Light. Matchday vibes without the clutter.</p>
+    </div>
+  </div>
+</section>
+
+<!-- About & Facts -->
+<section class="container py-4">
+  <div class="row g-4">
+    <div class="col-12 col-lg-7">
+      <div class="card border-0 shadow-sm h-100">
+        <div class="card-body">
+          <h2 class="h5">About the Club</h2>
+          <p class="mb-0">
+            Founded by local enthusiasts, the team keeps training minimal and fun:
+            crisp passing, quick transitions, and respect for the game. Home matches
+            feel like a neighborhood festival—open, friendly, and focused on play.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-lg-5">
+      <div class="card border-0 shadow-sm h-100">
+        <div class="card-body">
+          <h2 class="h5">Quick Facts</h2>
+          <ul class="mb-0">
+            <li>Stadium: Keats Field (capacity 12,500)</li>
+            <li>Colors: White &amp; Emerald</li>
+            <li>Style: High press &amp; clean build-up</li>
+            <li>Academy: U12–U18, open trials in spring</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Next Match -->
+<section class="container py-4">
+  <div class="card border-0 shadow-sm">
+    <div class="card-body d-flex flex-column flex-md-row align-items-md-center justify-content-between">
+      <div class="mb-3 mb-md-0">
+        <h2 class="h5 mb-1">Next Match</h2>
+        <p class="mb-0 text-muted">Keats FC vs. Consulate Rangers — Sat 18:00, Keats Field</p>
+      </div>
+<button class="btn btn-brand" type="button" data-bs-toggle="modal" data-bs-target="#ticketModal">
+  Buy Tickets
+</button>
+
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== Buy Tickets Modal (inline) ===== -->
+<div class="modal fade" id="ticketModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content bg-body border-0 shadow">
+      <div class="modal-header">
+        <h5 class="modal-title">Buy Tickets</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <form method="post" action="{% url 'sports:buy_tickets' %}" class="needs-validation" novalidate>
+        {% csrf_token %}
+        <input type="hidden" name="sport" value="football">
+
+        <div class="modal-body">
+          <div class="row g-3">
+            <div class="col-12 col-md-6">
+              <label for="qty" class="form-label">Quantity</label>
+              <input id="qty" name="quantity" type="number" class="form-control" min="1" max="10" value="1" required>
+              <div class="invalid-feedback">Pick 1–10 tickets.</div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label for="category" class="form-label">Category</label>
+              <select id="category" name="category" class="form-select" required>
+                <option value="" disabled selected>Select…</option>
+                <option>Standard</option>
+                <option>Premium</option>
+                <option>Family Zone</option>
+                <option>VIP</option>
+              </select>
+              <div class="invalid-feedback">Select a category.</div>
+            </div>
+
+            <div class="col-12"><hr class="my-2"></div>
+
+            <div class="col-12 col-md-6">
+              <label for="fullname" class="form-label">Full Name</label>
+              <input id="fullname" name="fullname" type="text" class="form-control" minlength="2" maxlength="80" required>
+              <div class="invalid-feedback">Enter your name (2–80 chars).</div>
+            </div>
+            <div class="col-12 col-md-6">
+              <label for="email" class="form-label">Email</label>
+              <input id="email" name="email" type="email" class="form-control" placeholder="name@example.com" required>
+              <div class="invalid-feedback">Valid email required.</div>
+            </div>
+            <div class="col-12 col-md-6">
+              <label for="phone" class="form-label">Phone</label>
+              <input id="phone" name="phone" type="tel" class="form-control" placeholder="+1 (555) 123-4567"
+                     pattern="^[0-9+()\-.\s]{7,}$" required>
+              <div class="invalid-feedback">Valid phone required.</div>
+            </div>
+            <div class="col-12 col-md-6">
+              <label for="notes" class="form-label">Notes (optional)</label>
+              <input id="notes" name="notes" type="text" class="form-control" placeholder="Accessibility, seating prefs…">
+            </div>
+
+            <div class="col-12">
+              <div class="form-check mt-2">
+                <input class="form-check-input" type="checkbox" id="agree" name="agree" required>
+                <label class="form-check-label" for="agree">I agree to the venue rules & ticket terms.</label>
+                <div class="invalid-feedback">You must accept to continue.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-primary">Request Tickets</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Tiny validation helper (inline) -->
+<script>
+(function () {
+  'use strict';
+  const forms = document.querySelectorAll('.needs-validation');
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+      form.classList.add('was-validated');
+    }, false);
+  });
+})();
+</script>
+
+
+<!-- Players  -->
+<section class="container py-4">
+  <h2 class="h5 mb-3">Players</h2>
+  <div class="row g-3">
+    <div class="col-6 col-md-4 col-lg-3">
+      <div class="card border-0 shadow-sm h-100">
+        <img src="{% static 'marrow.jpeg' %}" class="card-img-top" alt="Forward Marrow">
+        <div class="card-body py-3">
+          <div class="fw-semibold">Marrow</div>
+          <div class="text-muted small">Forward</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 col-md-4 col-lg-3">
+      <div class="card border-0 shadow-sm h-100">
+        <img src="{% static 'lyra.jpeg' %}" class="card-img-top" alt="Midfielder Lyra Renn">
+        <div class="card-body py-3">
+          <div class="fw-semibold">Lyra Renn</div>
+          <div class="text-muted small">Midfielder</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 col-md-4 col-lg-3">
+      <div class="card border-0 shadow-sm h-100">
+        <img src="{% static 'goal.jpeg' %}" class="card-img-top" alt="Goalkeeper">
+        <div class="card-body py-3">
+          <div class="fw-semibold">A. Keeper</div>
+          <div class="text-muted small">Goalkeeper</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Gallery  -->
+<section class="container py-4">
+  <h2 class="h5 mb-3">Gallery</h2>
+  <div class="row g-3">
+    <div class="col-12 col-md-4">
+      <div class="card border-0 shadow-sm">
+        <img src="{% static 'training.jpeg' %}" class="card-img-top" alt="Training session">
+      </div>
+    </div>
+    <div class="col-12 col-md-4">
+      <div class="card border-0 shadow-sm">
+        <img src="{% static 'crowd.jpeg' %}" class="card-img-top" alt="Matchday crowd">
+      </div>
+    </div>
+    <div class="col-12 col-md-4">
+      <div class="card border-0 shadow-sm">
+        <img src="{% static 'pitch.jpeg' %}" class="card-img-top" alt="Pitch detail">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{% endblock %}

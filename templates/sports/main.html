@@ -1,0 +1,50 @@
+{% extends "helloweb/base.html" %}
+{% load static %}
+{% block title %}Keats Sports{% endblock %}
+
+{% block content %}
+<header class="hero">
+  <div class="container hero__inner">
+    <div class="hero__badge">Arcadia Cup: SharpEagles 3–1 Webbers — Champions!</div>
+    <h1 class="hero__title">Keats Sports Hub <span class="hero__spark">⚡</span></h1>
+    <p class="hero__lead">
+      Scores, fixtures, and dispatches from Hyperion’s leagues — from Keats to Endymion.
+      Follow the SharpEagles, Mariners, and the rest of the Hegemony circuit.
+    </p>
+    <div class="hero__cta">
+      <a href="{% url 'sports:sports' %}" class="btn btn-brand">Scores & Fixtures</a>
+      <a href="{% url 'news' %}" class="btn btn-ghost">Club News</a>
+    </div>
+  </div>
+  <img class="hero__bg" src="{% static 'stadium.jpeg' %}" alt="Keats Stadium at dusk">
+</header>
+<section class="tiles container">
+  <article class="tile">
+    <img src="{% static 'fottball.jpeg' %}" alt="Football — SharpEagles FC">
+    <div class="tile__body">
+      <h3>Football</h3>
+      <p>SharpEagles FC: fixtures, results, table, roster.</p>
+      <a href="{% url 'sports:football' %}" class="tile__link">Open</a>
+    </div>
+  </article>
+
+  <article class="tile">
+    <img src="{% static 'hockey.jpeg' %}" alt="Hockey — Keats Ice">
+    <div class="tile__body">
+      <h3>Hockey</h3>
+      <p>Keats Ice: schedule, scores, standings, highlights.</p>
+      <a href="{% url 'sports:hokey' %}" class="tile__link">Open</a>
+    </div>
+  </article>
+
+  <article class="tile">
+    <img src="{% static 'basketball.jpeg' %}" alt="Basketball — Keats Mariners">
+    <div class="tile__body">
+      <h3>Basketball</h3>
+      <p>Mariners: games, stats, league news.</p>
+      <a href="{% url 'sports:basketball' %}" class="tile__link">Open</a>
+    </div>
+  </article>
+</section>
+
+{% endblock %}

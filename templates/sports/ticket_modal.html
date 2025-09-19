@@ -1,0 +1,104 @@
+{# expects: sport (str), post_url (string url), optional: matches (list of dicts id/title/date) #}
+<div class="modal fade" id="ticketModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content bg-body border-0 shadow">
+      <div class="modal-header">
+        <h5 class="modal-title">Buy {{ sport|title }} Tickets</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <form method="post" action="{{ post_url }}" class="needs-validation" novalidate>
+        {% csrf_token %}
+        <input type="hidden" name="sport" value="{{ sport }}">
+
+        {# Optional match picker — show only if 'matches' provided #}
+        {% if matches %}
+        <div class="px-4 pt-4">
+          <label for="match_id" class="form-label">Match</label>
+          <select id="match_id" name="match_id" class="form-select" required>
+            <option value="" selected disabled>Select a match…</option>
+            {% for m in matches %}
+              <option value="{{ m.id }}">{{ m.title }} — {{ m.date }}</option>
+            {% endfor %}
+          </select>
+          <div class="invalid-feedback">Please choose a match.</div>
+        </div>
+        {% endif %}
+
+        <div class="modal-body">
+          <div class="row g-3">
+            <div class="col-12 col-md-6">
+              <label for="qty" class="form-label">Quantity</label>
+              <input id="qty" name="quantity" type="number" class="form-control" min="1" max="10" value="1" required>
+              <div class="invalid-feedback">1–10 tickets.</div>
+            </div>
+            <div class="col-12 col-md-6">
+              <label for="category" class="form-label">Category</label>
+              <select id="category" name="category" class="form-select" required>
+                <option value="" disabled selected>Select…</option>
+                <option>Standard</option>
+                <option>Premium</option>
+                <option>Family Zone</option>
+                <option>VIP</option>
+              </select>
+              <div class="invalid-feedback">Select a category.</div>
+            </div>
+
+            <div class="col-12">
+              <hr class="my-2">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label for="fullname" class="form-label">Full Name</label>
+              <input id="fullname" name="fullname" type="text" class="form-control" minlength="2" maxlength="80" required>
+              <div class="invalid-feedback">Enter your name (2–80 chars).</div>
+            </div>
+            <div class="col-12 col-md-6">
+              <label for="email" class="form-label">Email</label>
+              <input id="email" name="email" type="email" class="form-control" placeholder="name@example.com" required>
+              <div class="invalid-feedback">Valid email required.</div>
+            </div>
+            <div class="col-12 col-md-6">
+              <label for="phone" class="form-label">Phone</label>
+              <input id="phone" name="phone" type="tel" class="form-control" placeholder="+1 (555) 123-4567" pattern="^[0-9+()\-.\s]{7,}$" required>
+              <div class="invalid-feedback">Valid phone required.</div>
+            </div>
+            <div class="col-12 col-md-6">
+              <label for="notes" class="form-label">Notes (optional)</label>
+              <input id="notes" name="notes" type="text" class="form-control" placeholder="Accessibility, seating prefs…">
+            </div>
+
+            <div class="col-12">
+              <div class="form-check mt-2">
+                <input class="form-check-input" type="checkbox" id="agree" name="agree" required>
+                <label class="form-check-label" for="agree">I agree to the venue rules & ticket terms.</label>
+                <div class="invalid-feedback">You must accept to continue.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-primary">Request Tickets</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  const forms = document.querySelectorAll('.needs-validation');
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+      form.classList.add('was-validated');
+    }, false);
+  });
+})();
+</script>

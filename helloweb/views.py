@@ -44,7 +44,7 @@ def random_sayings(request):
 def song_string(request):
     lyrics = 'whaaaaaat'
 
-    return render(request, 'helloweb/song_string.html', {'song':lyrics})
+    return render(request, 'helloweb/song_string.html', {f'song':{lyrics}})
 
 
 

@@ -1,13 +1,37 @@
 {% extends "helloweb/base.html" %}
-{% block title %}Management • Hyperion{% endblock %}
-{% block content %}
-<div id="keats-gov" class="p-4 mb-4 rounded" role="region" aria-labelledby="keats-gov-title">
-    <h2 id="keats-gov-title" class="mb-2">City Management</h2>
-    <ul class="m-0">
-      <li><strong>Office of the Governor-General (Hyperion Sector):</strong> Planetary administration &amp; interworld liaison.</li>
-      <li><strong>Keats Municipal Council:</strong> Transit, utilities, port ops, zoning around spaceport &amp; cultural quarter.</li>
-      <li><strong>Public Safety Guild:</strong> Response teams trained for desert storms and Time Tombs perimeter protocols.</li>
-      <li><strong>Culture &amp; Heritage Board:</strong> Festivals, archives, Poet’s Row preservation.</li>
-    </ul>
+{% block title %}City Management • Keats{% endblock %}
+
+{% block page_header %}
+  <div class="page-header">
+    <h1>City Management</h1>
+    <p class="lead-muted">Agencies, roles, and services across Keats.</p>
   </div>
+{% endblock %}
+
+{% block content %}
+  <section class="section k-panel">
+    <div class="row g-3">
+      <div class="col-12 col-md-6">
+        <ul class="m-0">
+          <li><strong>Governor-General (Hyperion Sector):</strong> Planetary administration & interworld liaison.</li>
+          <li><strong>Keats Municipal Council:</strong> Transit, utilities, port ops, zoning for spaceport & cultural quarter.</li>
+          <li><strong>Public Safety Guild:</strong> Desert-storm response and Time Tombs perimeter protocols.</li>
+          <li><strong>Culture & Heritage Board:</strong> Festivals, archives, Poet’s Row preservation.</li>
+        </ul>
+      </div>
+      <div class="col-12 col-md-6">
+        <ul class="m-0">
+          <li><strong>Urban Works:</strong> Roads, water, waste, desert-edge berms.</li>
+          <li><strong>Commerce Office:</strong> Business licensing, market permits, port fees.</li>
+          <li><strong>Pilgrim Services:</strong> Wayfinding, safety briefings, campsite vouchers.</li>
+          <li><strong>Emergency Channel:</strong> 88-KEATS-311 (24/7 dispatch).</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-3 d-flex gap-2">
+      <a class="btn btn-brand btn-sm" href="{% url 'contacts' %}">Contacts</a>
+      <a class="btn btn-ghost btn-sm" href="{% url 'management' %}">Departments</a>
+    </div>
+  </section>
 {% endblock %}

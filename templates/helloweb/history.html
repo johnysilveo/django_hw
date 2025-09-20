@@ -1,22 +1,37 @@
 {% extends "helloweb/base.html" %}
-{% block title %}History • Hyperion{% endblock %}
+{% block title %}City History • Keats{% endblock %}
+
+{% block page_header %}
+  <div class="page-header">
+    <h1>Keats — City of First Landings</h1>
+    <p class="lead-muted">From frontier port to Hyperion’s cultural capital.</p>
+  </div>
+{% endblock %}
+
 {% block content %}
-  <div id="keats-history" class="p-4 mb-4 rounded" role="region" aria-labelledby="keats-history-title">
-    <h2 id="keats-history-title" class="mb-2">Keats — City of First Landings</h2>
-    <p class="mb-2">
-      Founded during the early Hegemony expansion, Keats grew around Hyperion’s primary spaceport on the Equus
-      continent. Named in honor of poet <em>John Keats</em>, the city blended frontier grit with high culture:
-      landing pads beside amphitheaters; cargo mechs idling outside coffeehouses where pilgrims swapped Time Tombs rumors.
-    </p>
-    <p class="m-0">
-      As the largest settlement on Hyperion, Keats hosted the Hegemony Consulate and the Governor-General’s offices,
-      serving as a launch point for expeditions into the <strong>Sea of Grass</strong> and toward the enigmatic
-      <strong>Time Tombs</strong>.
-    </p>
-  </div>
-  <div class="container py-4">
-    <a class="btn btn-brand btn-sm" href="{% url 'history_people' %}">People</a>
-    <a class="btn btn-ghost btn-sm" href="{% url 'history_photos' %}">Photos</a>
-  </div>
-</div>
+  <section class="section k-panel">
+    <div class="row g-3">
+      <div class="col-12 col-md-6">
+        <ul class="m-0">
+          <li><strong>Origins:</strong> Early Hegemony expansion around Hyperion’s primary spaceport on the Equus continent.</li>
+          <li><strong>Name:</strong> Honoring poet <em>John Keats</em>.</li>
+          <li><strong>Character:</strong> Frontier grit meets high culture—landing pads beside amphitheaters.</li>
+          <li><strong>Street Life:</strong> Cargo mechs at cafés while pilgrims swap Time Tombs rumors.</li>
+        </ul>
+      </div>
+      <div class="col-12 col-md-6">
+        <ul class="m-0">
+          <li><strong>Capital Roles:</strong> Hegemony Consulate and Governor-General based here.</li>
+          <li><strong>Gateway:</strong> Launch point to the <strong>Sea of Grass</strong> and the <strong>Time Tombs</strong>.</li>
+          <li><strong>Growth:</strong> Largest settlement on Hyperion; nexus for trade and expeditions.</li>
+          <li><strong>Legacy:</strong> “Bold as verse. Tough as desert.”</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-3 d-flex gap-2">
+      <a class="btn btn-brand btn-sm" href="{% url 'history_people' %}">People</a>
+      <a class="btn btn-ghost btn-sm" href="{% url 'history_photos' %}">Photos</a>
+    </div>
+  </section>
 {% endblock %}

@@ -1,26 +1,45 @@
 {% extends "helloweb/base.html" %}
-{% block title %}City News • Hyperion{% endblock %}
-{% block content %}
-<div id="keats-news" class="p-4 mb-4 rounded" role="region" aria-labelledby="keats-news-title">
-    <h2 id="keats-news-title" class="mb-2">Latest News</h2>
+{% block title %}City News • Keats{% endblock %}
 
-    <article class="p-3 mb-3 rounded border" data-tag="port" data-priority="high">
-      <h3 class="h5 m-0">Port Keats Schedules Night Landings</h3>
-      <small class="d-block mb-2">Updated: 16 Sept • Port Ops</small>
-      <p class="m-0">New beacon array reduces dust-glare for late arrivals. Traders cheer; coffee vendors stock up.</p>
-    </article>
-
-    <article class="p-3 mb-3 rounded border" data-tag="culture">
-      <h3 class="h5 m-0">Ode Theatre Announces “Seven Against the Dunes”</h3>
-      <small class="d-block mb-2">Updated: 14 Sept • Culture</small>
-      <p class="m-0">A desert-chorus spectacle with live sand-organ. Matinées add shade-patio seats.</p>
-    </article>
-
-    <article class="p-3 rounded border" data-tag="advisory">
-      <h3 class="h5 m-0">Trail Advisory: Outer Grassline</h3>
-      <small class="d-block mb-2">Updated: 12 Sept • Public Safety Guild</small>
-      <p class="m-0">Brief dust squalls reported beyond Marker 27. Carry extra hydration and visor seals.</p>
-    </article>
+{% block page_header %}
+  <div class="page-header">
+    <h1>Latest News</h1>
+    <p class="lead-muted">Dispatches from port ops, culture, and public safety.</p>
   </div>
+{% endblock %}
 
+{% block content %}
+  <section class="section k-panel">
+    <div class="row g-3">
+      <div class="col-12">
+        <article class="p-3 rounded border" data-tag="port" data-priority="high">
+          <h3 class="h5 m-0">Port Keats Schedules Night Landings</h3>
+          <small class="d-block mb-2">Updated: 16 Sept • Port Ops</small>
+          <p class="m-0">
+            New beacon array reduces dust-glare for late arrivals. Traders cheer; coffee vendors stock up.
+          </p>
+        </article>
+      </div>
+
+      <div class="col-12">
+        <article class="p-3 rounded border" data-tag="culture">
+          <h3 class="h5 m-0">Ode Theatre Announces “Seven Against the Dunes”</h3>
+          <small class="d-block mb-2">Updated: 14 Sept • Culture</small>
+          <p class="m-0">
+            A desert-chorus spectacle with live sand-organ. Matinées add shade-patio seats.
+          </p>
+        </article>
+      </div>
+
+      <div class="col-12">
+        <article class="p-3 rounded border" data-tag="advisory">
+          <h3 class="h5 m-0">Trail Advisory: Outer Grassline</h3>
+          <small class="d-block mb-2">Updated: 12 Sept • Public Safety Guild</small>
+          <p class="m-0">
+            Brief dust squalls reported beyond Marker 27. Carry extra hydration and visor seals.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
 {% endblock %}

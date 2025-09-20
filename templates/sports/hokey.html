@@ -189,5 +189,17 @@
   });
 })();
 </script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const modal = document.getElementById('ticketModal');
+  if (modal && modal.parentNode !== document.body) {
+    document.body.appendChild(modal);          // move modal under <body>
+  }
+  // (optional) ensure Bootstrap instance exists for focus/scroll lock
+  if (window.bootstrap && modal) {
+    bootstrap.Modal.getOrCreateInstance(modal);
+  }
+});
+</script>
 
 {% endblock %}

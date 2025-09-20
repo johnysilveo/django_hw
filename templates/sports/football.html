@@ -174,9 +174,15 @@
 </div>
 
 <!-- Tiny validation helper -->
+<style>
+  /* modal safety: keep it above your custom surfaces/backdrop */
+  .modal{ z-index:1060 !important; }
+  .modal-backdrop{ z-index:1050 !important; }
+</style>
 <script>
 (function () {
   'use strict';
+  // Keep your validation
   const forms = document.querySelectorAll('.needs-validation');
   Array.from(forms).forEach(form => {
     form.addEventListener('submit', event => {
@@ -186,6 +192,14 @@
       }
       form.classList.add('was-validated');
     }, false);
+  });
+
+  // Simple fix: move the modal under <body> to avoid stacking-context traps
+  document.addEventListener('DOMContentLoaded', function () {
+    const m = document.getElementById('ticketModal');
+    if (m && m.parentElement !== document.body) {
+      document.body.appendChild(m);
+    }
   });
 })();
 </script>

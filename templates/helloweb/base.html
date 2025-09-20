@@ -24,8 +24,8 @@
 
         <div id="navMain" class="collapse navbar-collapse">
           <ul class="navbar-nav me-auto">
-            <li class="nav-item"><a class="nav-link {% if request.path|slice:':6' == '/news/' %}active{% endif %}" href="{% url 'news' %}">News</a></li>
-            <li class="nav-item"><a class="nav-link {% if request.path|slice:':12' == '/management/' %}active{% endif %}" href="{% url 'management' %}">Management</a></li>
+            <li class="nav-item"><a class="nav-link {% if request.path|slice:':6' == '/news/' %}active{% endif %}" href="{% url 'sports:sports' %}">Sports</a></li>
+            <li class="nav-item"><a class="nav-link {% if request.path|slice:':12' == '/management/' %}active{% endif %}" href="{% url 'business:business' %}">Business</a></li>
             <li class="nav-item"><a class="nav-link {% if request.path|slice:':7' == '/facts/' %}active{% endif %}" href="{% url 'facts' %}">Facts</a></li>
             <li class="nav-item"><a class="nav-link {% if request.path|slice:':10' == '/contacts/' %}active{% endif %}" href="{% url 'contacts' %}">Contacts</a></li>
 
@@ -36,6 +36,9 @@
                 <li><a class="dropdown-item" href="{% url 'history_index' %}">Overview</a></li>
                 <li><a class="dropdown-item" href="{% url 'history_people' %}">People</a></li>
                 <li><a class="dropdown-item" href="{% url 'history_photos' %}">Photos</a></li>
+                <li><a class="dropdown-item" href="{% url 'news' %}">News</a></li>
+                <li><a class="dropdown-item" href="{% url 'management' %}">Management</a></li>
+<!--                <li><a class="dropdown-item" href="{% url 'history_photos' %}">Photos</a></li>  -->
               </ul>
             </li>
           </ul>

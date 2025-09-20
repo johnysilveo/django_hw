@@ -22,5 +22,6 @@ urlpatterns = [
     path('',include('helloweb.urls')),
     # path('blog',include('blog.urls')),
     path('sports/', include(('sports.urls', 'sports'), namespace='sports')),
-path('weekday/', include('weekday_widget.urls')),
+    path('weekday/', include('weekday_widget.urls')),
+    path('business/', include('business.urls')),
 ]

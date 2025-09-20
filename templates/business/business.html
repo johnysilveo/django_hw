@@ -1,0 +1,82 @@
+{% extends "helloweb/base.html" %}
+{% load static %}
+{% block title %}Keats Business Hub{% endblock %}
+
+{% block hero %}
+<header class="hero">
+  <div class="container hero__inner">
+    <div class="hero__badge">Quarterly report: Keats market up 3.2% — retail & auto lead growth</div>
+    <h1 class="hero__title">Keats Business Hub <h1 class="hero__title">
+  <span class="hero__spark" aria-hidden="true">
+    <svg viewBox="0 0 24 24" width="1.2em" height="1.2em" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="performance">
+      <defs>
+        <linearGradient id="heroGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#3D49FF"/>
+          <stop offset="0.55" stop-color="#9C6BFF"/>
+          <stop offset="1" stop-color="#FF5AE6"/>
+        </linearGradient>
+      </defs>
+      <!-- outer arc -->
+      <path d="M4 16a8 8 0 0 1 16 0" fill="none" stroke="url(#heroGrad)" stroke-width="2" stroke-linecap="round"/>
+      <!-- needle -->
+      <path d="M12 16L16.5 11.5" fill="none" stroke="url(#heroGrad)" stroke-width="2" stroke-linecap="round"/>
+      <!-- hub -->
+      <circle cx="12" cy="16" r="2" fill="#fff"/>
+    </svg>
+  </span>
+</h1>
+
+    <p class="hero__lead">
+      Local commerce, dealerships, and services across Hyperion’s coastal corridor.
+      Track offers, openings, and certified stock from trusted Keats partners.
+    </p>
+    <div class="hero__cta">
+      <a href="{% url 'news' %}" class="btn btn-brand">Business News</a>
+      <a href="#" class="btn btn-ghost">Dealer Programs</a>
+    </div>
+  </div>
+  <img class="hero__bg" src="{% static 'business/b_hero.jpeg' %}" alt="Keats skyline at dusk — business district">
+</header>
+
+<section class="strip">
+  <div class="container strip__grid">
+    <div class="strip__item"><span class="dot"></span> Honda Keats: weekend test-drives — book slots online</div>
+    <div class="strip__item"><span class="dot"></span> Toyota Center: certified pre-owned arrivals on Friday</div>
+    <div class="strip__item"><span class="dot"></span> Lexus Gallery: limited F-Sport inventory (by appointment)</div>
+  </div>
+</section>
+{% endblock %}
+
+{% block content %}
+<section class="tiles container">
+  <!-- Honda -->
+  <article class="tile">
+    <img src="{% static 'business/honda.jpeg' %}" alt="Honda Keats — showroom tile">
+    <div class="tile__body">
+      <h3>Honda Keats</h3>
+      <p>Reliable new models and efficient hybrids. Book a test-drive, see finance options, and check CPO stock.</p>
+      <a href="{% url 'business:honda' %}" class="tile__link">Open</a>
+    </div>
+  </article>
+
+  <!-- Toyota -->
+  <article class="tile">
+    <img src="{% static 'business/toyota.jpeg' %}" alt="Toyota Center Keats — showroom tile">
+    <div class="tile__body">
+      <h3>Toyota Center</h3>
+      <p>Full lineup from city hatchbacks to SUVs. Weekly arrivals, transparent pricing, certified inspections.</p>
+      <a href="{% url 'business:toyota' %}" class="tile__link">Open</a>
+    </div>
+  </article>
+
+  <!-- Lexus -->
+  <article class="tile">
+    <img src="{% static 'business/lexus.jpeg' %}" alt="Lexus Gallery Keats — showroom tile">
+    <div class="tile__body">
+      <h3>Lexus Gallery</h3>
+      <p>Premium sedans and F-Sport editions with concierge delivery. Warranty, maintenance, and trade-in support.</p>
+      <a href="{% url 'business:lexus' %}" class="tile__link">Open</a>
+    </div>
+  </article>
+</section>
+{% endblock %}

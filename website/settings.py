@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'helloweb',
     'sports',
     'weekday_widget',
+    'business',
 
 ]
 

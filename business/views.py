@@ -11,3 +11,11 @@ def toyota(request):
 
 def lexus(request):
     return render(request, "business/lexus.html")
+
+
+def index(request):
+    return render(request, "business/index.html")
+
+def post(request):
+    return render(request, "business/post.html")
+

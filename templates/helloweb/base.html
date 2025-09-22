@@ -25,6 +25,7 @@
         <div id="navMain" class="collapse navbar-collapse">
           <ul class="navbar-nav me-auto">
             <li class="nav-item"><a class="nav-link {% if request.path|slice:':6' == '/news/' %}active{% endif %}" href="{% url 'sports:sports' %}">Sports</a></li>
+              <li class="nav-item"><a class="nav-link {% if request.path|slice:':6' == '/news/' %}active{% endif %}" href="{% url 'home' %}">Home</a></li>
             <li class="nav-item"><a class="nav-link {% if request.path|slice:':12' == '/management/' %}active{% endif %}" href="{% url 'business:business' %}">Business</a></li>
             <li class="nav-item"><a class="nav-link {% if request.path|slice:':7' == '/facts/' %}active{% endif %}" href="{% url 'facts' %}">Facts</a></li>
             <li class="nav-item"><a class="nav-link {% if request.path|slice:':10' == '/contacts/' %}active{% endif %}" href="{% url 'contacts' %}">Contacts</a></li>
@@ -38,7 +39,8 @@
                 <li><a class="dropdown-item" href="{% url 'history_photos' %}">Photos</a></li>
                 <li><a class="dropdown-item" href="{% url 'news' %}">News</a></li>
                 <li><a class="dropdown-item" href="{% url 'management' %}">Management</a></li>
-<!--                <li><a class="dropdown-item" href="{% url 'history_photos' %}">Photos</a></li>  -->
+                <li><a class="dropdown-item" href="{% url 'business:index' %}">index</a></li>
+                  <li><a class="dropdown-item" href="{% url 'business:index' %}">post</a></li>
               </ul>
             </li>
           </ul>
@@ -146,9 +148,9 @@
       <div class="pro-footer__bottom">
         <div class="pro-footer__copy">© 2025 Hegemony Archives (Fan)</div>
         <div class="pro-footer__legal">
-          <a href="#">Privacy</a><span aria-hidden="true">•</span>
+          <a href="{% url 'business:index' %}">Index</a><span aria-hidden="true">•</span>
           <a href="{%url 'weekday_widget:today' %}">Today's day</a><span aria-hidden="true">•</span>
-          <a href="#">Sitemap</a>
+          <a href="{% url 'business:post' %}">Post</a>
         </div>
         <div class="pro-footer__social" aria-label="Social">
           <a href="#" aria-label="Relay">

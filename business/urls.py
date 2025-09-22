@@ -8,4 +8,6 @@ urlpatterns = [
     path("honda/", views.honda, name="honda"),
     path("toyota/", views.toyota, name="toyota"),
     path("lexus/", views.lexus, name="lexus"),
+    path("index/",views.index, name="index"),
+    path("post/",views.post, name="post"),
 ]
